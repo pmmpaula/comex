@@ -1,9 +1,23 @@
-﻿Dictionary<string, string> clientes = new Dictionary<string, string>();
+﻿Dictionary<string, string> clientes = new Dictionary<string, string>
+{
+    {"123", "Leo"},
+    {"456", "Lari"},
+    {"789", "Caio"},
+};
 
-Dictionary<string, double> produtos = new Dictionary<string, double>();
+Dictionary<string, double> produtos = new Dictionary<string, double>
+{
+    {"Notebook", 3500.00},
+    {"Mouse", 100.00},
+    {"Teclado", 200.00}
+};
 
-Dictionary<string, List<string>> carrinhos = new Dictionary<string, List<string>>();
-
+Dictionary<string, List<string>> carrinhos = new Dictionary<string, List<string>>
+{
+    {"123", ["Notebook", "Mouse"]},
+    {"456", ["Teclado"]},
+    {"789", []}
+};
 
 void ExibirMenuDeOpcoes()
 {
@@ -13,6 +27,7 @@ void ExibirMenuDeOpcoes()
     Console.WriteLine("Digite 3 para Cadastrar produto");
     Console.WriteLine("Digite 4 para Ajustar preço de produto");
     Console.WriteLine("Digite 5 para Adicionar produto no carrinho");
+    Console.WriteLine("Digite 6 para Fechar compra");
     Console.WriteLine("Digite -1 para Sair do programa");
 
     int opcao = int.Parse(Console.ReadLine()!);
@@ -33,6 +48,9 @@ void ExibirMenuDeOpcoes()
             break;
         case 5:
             AdicionaProdutoNoCarrinho();
+            break;
+        case 6:
+            FechaCompra();
             break;
         case -1:
             Console.WriteLine("COMEX FINALIZADO!");
@@ -141,6 +159,52 @@ void AdicionaProdutoNoCarrinho()
     carrinhos[cpfCliente].Add(nomeProduto);
 
     Console.WriteLine($"Produto adicionado ao carrinho com sucesso.");
+
+    ExibirMenuDeOpcoes();
+}
+
+void FechaCompra()
+{
+    Console.WriteLine($"Opção escolhida: Fechar compra");
+
+    Console.WriteLine("Digite o CPF do cliente que deseja fechar a compra:");
+    string cpfCliente = Console.ReadLine()!;
+
+    if (!clientes.ContainsKey(cpfCliente))
+    {
+        Console.WriteLine($"Cliente não cadastrado.");
+
+        ExibirMenuDeOpcoes();
+
+        return;
+    }
+
+    Console.WriteLine("Produtos no carrinho:");
+
+    foreach (var produto in carrinhos[cpfCliente])
+    {
+        Console.WriteLine($"{produto}");
+    }
+
+    double soma = 0;
+
+    foreach (var produto in carrinhos[cpfCliente])
+    {
+        soma += produtos[produto];
+    }
+
+    Console.WriteLine($"Valor final da compra: R${soma:F2}");
+
+    Console.WriteLine("Digite o número do cartão de crédito:");
+    string numeroCartao = Console.ReadLine()!;
+
+    Console.WriteLine("Digite a data de validade do cartão:");
+    string dataValidade = Console.ReadLine()!;
+
+    Console.WriteLine("Digite o código de segurança do cartão:");
+    string codigoSeguranca = Console.ReadLine()!;
+
+    Console.WriteLine($"Realizando pagamento de R${soma:F2} no cartão {numeroCartao}.");
 
     ExibirMenuDeOpcoes();
 }
