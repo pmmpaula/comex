@@ -1,15 +1,17 @@
-﻿void ExibirMenuDeOpcoes()
-{
-    Console.WriteLine("-- PROJETO COMEX --");
+﻿Dictionary<string, string> clientes = new Dictionary<string, string>();
 
+void ExibirMenuDeOpcoes()
+{
+    Console.WriteLine("\n-- PROJETO COMEX --");
     Console.WriteLine("\nDigite 1 para Cadastrar cliente");
+    Console.WriteLine("Digite -1 para Sair do programa");
 
     int opcao = int.Parse(Console.ReadLine()!);
 
     switch (opcao)
     {
         case 1:
-            CadastrarCliente();
+            CadastraCliente();
             break;
         case -1:
             Console.WriteLine("COMEX FINALIZADO!");
@@ -17,9 +19,21 @@
     }
 }
 
-void CadastrarCliente()
+void CadastraCliente()
 {
     Console.WriteLine($"Opção escolhida: Cadastrar cliente");
+
+    Console.WriteLine("Digite o CPF do cliente:");
+    string cpf = Console.ReadLine()!;
+
+    Console.WriteLine("Digite o nome do cliente:");
+    string nome = Console.ReadLine()!;
+
+    clientes.Add(cpf, nome);
+
+    Console.WriteLine($"Usuário {nome} ({cpf}) cadastrado com sucesso!");
+
+    ExibirMenuDeOpcoes();
 }
 
 ExibirMenuDeOpcoes();
