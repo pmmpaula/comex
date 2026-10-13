@@ -2,6 +2,9 @@
 
 Dictionary<string, double> produtos = new Dictionary<string, double>();
 
+Dictionary<string, List<string>> carrinhos = new Dictionary<string, List<string>>();
+
+
 void ExibirMenuDeOpcoes()
 {
     Console.WriteLine("\n-- PROJETO COMEX --");
@@ -9,6 +12,7 @@ void ExibirMenuDeOpcoes()
     Console.WriteLine("Digite 2 para Listar clientes");
     Console.WriteLine("Digite 3 para Cadastrar produto");
     Console.WriteLine("Digite 4 para Ajustar preço de produto");
+    Console.WriteLine("Digite 5 para Adicionar produto no carrinho");
     Console.WriteLine("Digite -1 para Sair do programa");
 
     int opcao = int.Parse(Console.ReadLine()!);
@@ -27,6 +31,9 @@ void ExibirMenuDeOpcoes()
         case 4:
             AjustarPrecoDeProduto();
             break;
+        case 5:
+            AdicionaProdutoNoCarrinho();
+            break;
         case -1:
             Console.WriteLine("COMEX FINALIZADO!");
             break;
@@ -44,6 +51,8 @@ void CadastraCliente()
     string nome = Console.ReadLine()!;
 
     clientes.Add(cpf, nome);
+
+    carrinhos.Add(cpf, new List<string>());
 
     Console.WriteLine($"Usuário {nome} ({cpf}) cadastrado com sucesso!");
 
@@ -97,6 +106,41 @@ void AjustarPrecoDeProduto()
     {
         Console.WriteLine($"Produto não cadastrado no sistema.");
     }
+
+    ExibirMenuDeOpcoes();
+}
+
+void AdicionaProdutoNoCarrinho()
+{
+    Console.WriteLine($"Opção escolhida: Adicionar produto no carrinho");
+
+    Console.WriteLine("Digite o CPF do cliente que está comprando:");
+    string cpfCliente = Console.ReadLine()!;
+
+    if (!clientes.ContainsKey(cpfCliente))
+    {
+        Console.WriteLine($"Usuário não cadastrado.");
+
+        ExibirMenuDeOpcoes();
+
+        return;
+    }
+
+    Console.WriteLine("Digite o nome do produto que deseja adicionar ao carrinho:");
+    string nomeProduto = Console.ReadLine()!;
+
+    if (!produtos.ContainsKey(nomeProduto))
+    {
+        Console.WriteLine($"Produto não cadastrado.");
+
+        ExibirMenuDeOpcoes();
+
+        return;
+    }
+
+    carrinhos[cpfCliente].Add(nomeProduto);
+
+    Console.WriteLine($"Produto adicionado ao carrinho com sucesso.");
 
     ExibirMenuDeOpcoes();
 }
