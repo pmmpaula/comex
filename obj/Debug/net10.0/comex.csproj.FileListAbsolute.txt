@@ -1,0 +1,15 @@
+C:\Users\pmmpaula\OneDrive - Sefaz-SP\Documentos\Cursos\Alura\Trilha - Introdução ao Desenvolvimento de Software com C# e .NET\comex\obj\Debug\net10.0\comex.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pmmpaula\OneDrive - Sefaz-SP\Documentos\Cursos\Alura\Trilha - Introdução ao Desenvolvimento de Software com C# e .NET\comex\obj\Debug\net10.0\comex.AssemblyInfoInputs.cache
+C:\Users\pmmpaula\OneDrive - Sefaz-SP\Documentos\Cursos\Alura\Trilha - Introdução ao Desenvolvimento de Software com C# e .NET\comex\obj\Debug\net10.0\comex.AssemblyInfo.cs
+C:\Users\pmmpaula\OneDrive - Sefaz-SP\Documentos\Cursos\Alura\Trilha - Introdução ao Desenvolvimento de Software com C# e .NET\comex\obj\Debug\net10.0\comex.csproj.CoreCompileInputs.cache
+C:\Users\pmmpaula\OneDrive - Sefaz-SP\Documentos\Cursos\Alura\Trilha - Introdução ao Desenvolvimento de Software com C# e .NET\comex\obj\Debug\net10.0\comex.sourcelink.json
+C:\Users\pmmpaula\OneDrive - Sefaz-SP\Documentos\Cursos\Alura\Trilha - Introdução ao Desenvolvimento de Software com C# e .NET\comex\bin\Debug\net10.0\comex.exe
+C:\Users\pmmpaula\OneDrive - Sefaz-SP\Documentos\Cursos\Alura\Trilha - Introdução ao Desenvolvimento de Software com C# e .NET\comex\bin\Debug\net10.0\comex.deps.json
+C:\Users\pmmpaula\OneDrive - Sefaz-SP\Documentos\Cursos\Alura\Trilha - Introdução ao Desenvolvimento de Software com C# e .NET\comex\bin\Debug\net10.0\comex.runtimeconfig.json
+C:\Users\pmmpaula\OneDrive - Sefaz-SP\Documentos\Cursos\Alura\Trilha - Introdução ao Desenvolvimento de Software com C# e .NET\comex\bin\Debug\net10.0\comex.dll
+C:\Users\pmmpaula\OneDrive - Sefaz-SP\Documentos\Cursos\Alura\Trilha - Introdução ao Desenvolvimento de Software com C# e .NET\comex\bin\Debug\net10.0\comex.pdb
+C:\Users\pmmpaula\OneDrive - Sefaz-SP\Documentos\Cursos\Alura\Trilha - Introdução ao Desenvolvimento de Software com C# e .NET\comex\obj\Debug\net10.0\comex.dll
+C:\Users\pmmpaula\OneDrive - Sefaz-SP\Documentos\Cursos\Alura\Trilha - Introdução ao Desenvolvimento de Software com C# e .NET\comex\obj\Debug\net10.0\refint\comex.dll
+C:\Users\pmmpaula\OneDrive - Sefaz-SP\Documentos\Cursos\Alura\Trilha - Introdução ao Desenvolvimento de Software com C# e .NET\comex\obj\Debug\net10.0\comex.pdb
+C:\Users\pmmpaula\OneDrive - Sefaz-SP\Documentos\Cursos\Alura\Trilha - Introdução ao Desenvolvimento de Software com C# e .NET\comex\obj\Debug\net10.0\comex.genruntimeconfig.cache
+C:\Users\pmmpaula\OneDrive - Sefaz-SP\Documentos\Cursos\Alura\Trilha - Introdução ao Desenvolvimento de Software com C# e .NET\comex\obj\Debug\net10.0\ref\comex.dll
