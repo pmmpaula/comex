@@ -1,10 +1,13 @@
 ﻿Dictionary<string, string> clientes = new Dictionary<string, string>();
 
+Dictionary<string, double> produtos = new Dictionary<string, double>();
+
 void ExibirMenuDeOpcoes()
 {
     Console.WriteLine("\n-- PROJETO COMEX --");
     Console.WriteLine("\nDigite 1 para Cadastrar cliente");
     Console.WriteLine("Digite 2 para Listar clientes");
+    Console.WriteLine("Digite 3 para Cadastrar produto");
     Console.WriteLine("Digite -1 para Sair do programa");
 
     int opcao = int.Parse(Console.ReadLine()!);
@@ -16,6 +19,9 @@ void ExibirMenuDeOpcoes()
             break;
         case 2:
             ListaClientes();
+            break;
+        case 3:
+            CadastraProduto();
             break;
         case -1:
             Console.WriteLine("COMEX FINALIZADO!");
@@ -48,6 +54,23 @@ void ListaClientes()
     {
         Console.WriteLine($"CPF: {cliente.Key}, Nome: {cliente.Value}");
     }
+
+    ExibirMenuDeOpcoes();
+}
+
+void CadastraProduto()
+{
+    Console.WriteLine($"Opção escolhida: Cadastrar produto");
+
+    Console.WriteLine("Digite o nome do produto:");
+    string nome = Console.ReadLine()!;
+
+    Console.WriteLine("Digite o preço do produto:");
+    double preco = double.Parse(Console.ReadLine()!);
+
+    produtos.Add(nome, preco);
+
+    Console.WriteLine($"Produto {nome} cadastrado com sucesso!");
 
     ExibirMenuDeOpcoes();
 }
