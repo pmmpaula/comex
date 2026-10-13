@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\pmmpaula\\OneDrive - Sefaz-SP\\Documentos\\Cursos\\Alura\\Trilha - Introdução ao Desenvolvimento de Software com C# e .NET\\comex\\comex.csproj": {}
+    "C:\\Users\\pmmpaula\\OneDrive - Sefaz-SP\\Documentos\\Cursos\\Alura\\Trilha - Introdução ao Desenvolvimento de Software com C# e .NET\\comex\\comex.csproj": {}
   },
   "projects": {
-    "c:\\Users\\pmmpaula\\OneDrive - Sefaz-SP\\Documentos\\Cursos\\Alura\\Trilha - Introdução ao Desenvolvimento de Software com C# e .NET\\comex\\comex.csproj": {
+    "C:\\Users\\pmmpaula\\OneDrive - Sefaz-SP\\Documentos\\Cursos\\Alura\\Trilha - Introdução ao Desenvolvimento de Software com C# e .NET\\comex\\comex.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\pmmpaula\\OneDrive - Sefaz-SP\\Documentos\\Cursos\\Alura\\Trilha - Introdução ao Desenvolvimento de Software com C# e .NET\\comex\\comex.csproj",
+        "projectUniqueName": "C:\\Users\\pmmpaula\\OneDrive - Sefaz-SP\\Documentos\\Cursos\\Alura\\Trilha - Introdução ao Desenvolvimento de Software com C# e .NET\\comex\\comex.csproj",
         "projectName": "comex",
-        "projectPath": "c:\\Users\\pmmpaula\\OneDrive - Sefaz-SP\\Documentos\\Cursos\\Alura\\Trilha - Introdução ao Desenvolvimento de Software com C# e .NET\\comex\\comex.csproj",
+        "projectPath": "C:\\Users\\pmmpaula\\OneDrive - Sefaz-SP\\Documentos\\Cursos\\Alura\\Trilha - Introdução ao Desenvolvimento de Software com C# e .NET\\comex\\comex.csproj",
         "packagesPath": "C:\\Users\\pmmpaula\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\pmmpaula\\OneDrive - Sefaz-SP\\Documentos\\Cursos\\Alura\\Trilha - Introdução ao Desenvolvimento de Software com C# e .NET\\comex\\obj\\",
+        "outputPath": "C:\\Users\\pmmpaula\\OneDrive - Sefaz-SP\\Documentos\\Cursos\\Alura\\Trilha - Introdução ao Desenvolvimento de Software com C# e .NET\\comex\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pmmpaula\\AppData\\Roaming\\NuGet\\NuGet.Config"
