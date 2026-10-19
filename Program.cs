@@ -1,33 +1,27 @@
-﻿Dictionary<string, string> clientes = new Dictionary<string, string>
-{
-    {"123", "Leo"},
-    {"456", "Lari"},
-    {"789", "Caio"},
-};
+﻿Endereco endereco1 = new Endereco("Centro", "São Paulo", "Apto 101", "SP", "Rua A", 100);
+Endereco endereco2 = new Endereco("Jardim", "Rio de Janeiro", "Casa 202", "RJ", "Rua B", 200);
 
-Dictionary<string, double> produtos = new Dictionary<string, double>
-{
-    {"Notebook", 3500.00},
-    {"Mouse", 100.00},
-    {"Teclado", 200.00}
-};
+List<Cliente> clientes = new List<Cliente>();
 
-Dictionary<string, List<string>> carrinhos = new Dictionary<string, List<string>>
-{
-    {"123", ["Notebook", "Mouse"]},
-    {"456", ["Teclado"]},
-    {"789", []}
-};
+Cliente cliente1 = new Cliente("João Silva", "123.456.789-00", "joao.silva@email.com", "Engenheiro", "(11) 98765-4321", endereco1);
+Cliente cliente2 = new Cliente("Maria Oliveira", "987.654.321-00", "maria.oliveira@email.com", "Designer", "(21) 98765-4321", endereco2);
+
+clientes.Add(cliente1);
+clientes.Add(cliente2);
+
+List<Produto> produtos = new List<Produto>();
+
+Produto produto1 = new Produto("Notebook", "Notebook Gamer", 3500.00m, 5);
+Produto produto2 = new Produto("Smartphone", "Smartphone Android", 1500.00m, 10);
+
+produtos.Add(produto1);
+produtos.Add(produto2);
 
 void ExibirMenuDeOpcoes()
 {
-    Console.WriteLine("\n-- PROJETO COMEX --");
-    Console.WriteLine("\nDigite 1 para Cadastrar cliente");
-    Console.WriteLine("Digite 2 para Listar clientes");
-    Console.WriteLine("Digite 3 para Cadastrar produto");
-    Console.WriteLine("Digite 4 para Ajustar preço de produto");
-    Console.WriteLine("Digite 5 para Adicionar produto no carrinho");
-    Console.WriteLine("Digite 6 para Fechar compra");
+    Console.WriteLine("\n-- Menu de opções --");
+    Console.WriteLine("\nDigite 1 para Criar um produto");
+    Console.WriteLine("Digite 2 para Listar os produtos");
     Console.WriteLine("Digite -1 para Sair do programa");
 
     int opcao = int.Parse(Console.ReadLine()!);
@@ -35,22 +29,10 @@ void ExibirMenuDeOpcoes()
     switch (opcao)
     {
         case 1:
-            CadastraCliente();
+            CriaProduto();
             break;
         case 2:
-            ListaClientes();
-            break;
-        case 3:
-            CadastraProduto();
-            break;
-        case 4:
-            AjustarPrecoDeProduto();
-            break;
-        case 5:
-            AdicionaProdutoNoCarrinho();
-            break;
-        case 6:
-            FechaCompra();
+            ListaProdutos();
             break;
         case -1:
             Console.WriteLine("COMEX FINALIZADO!");
@@ -58,153 +40,39 @@ void ExibirMenuDeOpcoes()
     }
 }
 
-void CadastraCliente()
+void CriaProduto()
 {
-    Console.WriteLine($"Opção escolhida: Cadastrar cliente");
-
-    Console.WriteLine("Digite o CPF do cliente:");
-    string cpf = Console.ReadLine()!;
-
-    Console.WriteLine("Digite o nome do cliente:");
-    string nome = Console.ReadLine()!;
-
-    clientes.Add(cpf, nome);
-
-    carrinhos.Add(cpf, new List<string>());
-
-    Console.WriteLine($"Usuário {nome} ({cpf}) cadastrado com sucesso!");
-
-    ExibirMenuDeOpcoes();
-}
-
-void ListaClientes()
-{
-    Console.WriteLine($"Opção escolhida: Listar clientes");
-
-    foreach (var cliente in clientes)
-    {
-        Console.WriteLine($"CPF: {cliente.Key}, Nome: {cliente.Value}");
-    }
-
-    ExibirMenuDeOpcoes();
-}
-
-void CadastraProduto()
-{
-    Console.WriteLine($"Opção escolhida: Cadastrar produto");
+    Console.WriteLine($"Opção escolhida: Criar produto");
 
     Console.WriteLine("Digite o nome do produto:");
     string nome = Console.ReadLine()!;
 
-    Console.WriteLine("Digite o preço do produto:");
-    double preco = double.Parse(Console.ReadLine()!);
+    Console.WriteLine("Digite a descrição do produto:");
+    string descricao = Console.ReadLine()!;
 
-    produtos.Add(nome, preco);
+    Console.WriteLine("Digite o preço unitário do produto:");
+    decimal precoUnitario = decimal.Parse(Console.ReadLine()!);
+
+    Console.WriteLine("Digite a quantidade em estoque:");
+    int quantidade = int.Parse(Console.ReadLine()!);
+
+    Produto produto = new Produto(nome, descricao, precoUnitario, quantidade);
+    produtos.Add(produto);
 
     Console.WriteLine($"Produto {nome} cadastrado com sucesso!");
 
     ExibirMenuDeOpcoes();
 }
 
-void AjustarPrecoDeProduto()
+void ListaProdutos()
 {
-    Console.WriteLine($"Opção escolhida: Ajustar preço de produto");
+    Console.WriteLine($"Opção escolhida: Listar produtos");
 
-    Console.WriteLine("Qual produto deseja ajustar o preço?");
-    string nome = Console.ReadLine()!;
 
-    if (produtos.ContainsKey(nome))
+    foreach (var produto in produtos)
     {
-        Console.WriteLine("Digite o novo preço do produto:");
-        double novoPreco = double.Parse(Console.ReadLine()!);
-        produtos[nome] = novoPreco;
-        Console.WriteLine($"Preço do produto atualizado.");
+        Console.WriteLine($"Nome: {produto.Nome}, Descrição: {produto.Descricao}, Preço: {produto.PrecoUnitario}, Quantidade: {produto.Quantidade}");
     }
-    else
-    {
-        Console.WriteLine($"Produto não cadastrado no sistema.");
-    }
-
-    ExibirMenuDeOpcoes();
-}
-
-void AdicionaProdutoNoCarrinho()
-{
-    Console.WriteLine($"Opção escolhida: Adicionar produto no carrinho");
-
-    Console.WriteLine("Digite o CPF do cliente que está comprando:");
-    string cpfCliente = Console.ReadLine()!;
-
-    if (!clientes.ContainsKey(cpfCliente))
-    {
-        Console.WriteLine($"Usuário não cadastrado.");
-
-        ExibirMenuDeOpcoes();
-
-        return;
-    }
-
-    Console.WriteLine("Digite o nome do produto que deseja adicionar ao carrinho:");
-    string nomeProduto = Console.ReadLine()!;
-
-    if (!produtos.ContainsKey(nomeProduto))
-    {
-        Console.WriteLine($"Produto não cadastrado.");
-
-        ExibirMenuDeOpcoes();
-
-        return;
-    }
-
-    carrinhos[cpfCliente].Add(nomeProduto);
-
-    Console.WriteLine($"Produto adicionado ao carrinho com sucesso.");
-
-    ExibirMenuDeOpcoes();
-}
-
-void FechaCompra()
-{
-    Console.WriteLine($"Opção escolhida: Fechar compra");
-
-    Console.WriteLine("Digite o CPF do cliente que deseja fechar a compra:");
-    string cpfCliente = Console.ReadLine()!;
-
-    if (!clientes.ContainsKey(cpfCliente))
-    {
-        Console.WriteLine($"Cliente não cadastrado.");
-
-        ExibirMenuDeOpcoes();
-
-        return;
-    }
-
-    Console.WriteLine("Produtos no carrinho:");
-
-    foreach (var produto in carrinhos[cpfCliente])
-    {
-        Console.WriteLine($"{produto}");
-    }
-
-    double soma = 0;
-
-    foreach (var produto in carrinhos[cpfCliente])
-    {
-        soma += produtos[produto];
-    }
-
-    Console.WriteLine($"Valor final da compra: R${soma:F2}");
-
-    Console.WriteLine("Digite o número do cartão de crédito:");
-    string numeroCartao = Console.ReadLine()!;
-
-    Console.WriteLine("Digite a data de validade do cartão:");
-    string dataValidade = Console.ReadLine()!;
-
-    Console.WriteLine("Digite o código de segurança do cartão:");
-    string codigoSeguranca = Console.ReadLine()!;
-
-    Console.WriteLine($"Realizando pagamento de R${soma:F2} no cartão {numeroCartao}.");
 
     ExibirMenuDeOpcoes();
 }
